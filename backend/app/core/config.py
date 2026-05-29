@@ -1,7 +1,9 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    ANTHROPIC_API_KEY: str
+    ANTHROPIC_API_KEY: str = ""
+    GEMINI_API_KEY: str = ""
+    GROQ_API_KEY: str = ""
     CHROMA_PERSIST_DIR: str = "./vectorstore"
     DOCUMENTS_DIR: str = "./documents"
     EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"

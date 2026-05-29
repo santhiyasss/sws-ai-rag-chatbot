@@ -1,4 +1,4 @@
-from langchain_anthropic import ChatAnthropic
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from app.services.retriever import retrieve_chunks
 from app.core.config import settings
@@ -30,10 +30,10 @@ def run_rag(question: str) -> dict:
         ("human", "{question}")
     ])
 
-    llm = ChatAnthropic(
-        model="claude-3-haiku-20240307",
-        anthropic_api_key=settings.ANTHROPIC_API_KEY,
-        max_tokens=1024
+    llm = ChatGroq(
+        model="llama-3.1-8b-instant",
+        groq_api_key=settings.GROQ_API_KEY,
+        temperature=0
     )
 
     chain = prompt | llm
